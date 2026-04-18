@@ -1,0 +1,29 @@
+/* noinspection CssUnknownAtRule */
+@tailwind base;
+/* noinspection CssUnknownAtRule */
+@tailwind components;
+/* noinspection CssUnknownAtRule */
+@tailwind utilities;
+
+body {
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Custom Scrollbar */
+/* noinspection CssUnknownPseudoSelector */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+/* noinspection CssUnknownPseudoSelector */
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+/* noinspection CssUnknownPseudoSelector */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #3f3f46;
+    border-radius: 10px;
+}
