@@ -1,42 +1,73 @@
-# 🎓 Thuto-Focus: The Digger's Hub
+# React + TypeScript + Vite
 
-> *"Kodumela moepathutse ga go lehumo le le tswang kgauswi."* > (Working in silence... your wealth makes the noise.)
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-**Thuto-Focus** is a high-end, gamified productivity application designed specifically for university students. It bridges the gap between academic grind and professional legacy by rewarding deep focus with tangible, real-world ROI (Return on Investment).
+Currently, two official plugins are available:
 
-## 🚀 The Mission
-Built to help students evolve from a standard "Student" into a "Standing Entity." Thuto-Focus replaces traditional, anxiety-inducing study timers with a calm, rewarding ecosystem that tracks consistency, encourages squad collaboration, and turns study minutes into spendable currency.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## ⚙️ Core Architecture & Features
+## React Compiler
 
-### 1. The Study Pit (Dynamic Focus Engine)
-* **Shrink-to-Focus UI:** Once a session begins, the interface minimizes distractions by scaling down the timer.
-* **8-Minute Pulse:** Implements scientifically-backed interval motivation, surfacing universal high-performance quotes every 8 minutes to maintain momentum.
-* **Solo & Group Digs:** Allows users to focus alone or synchronize timers with their study squad for multiplier bonuses.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-### 2. ROI & Milestones (The Ranks Dashboard)
-* **Progressive Code Unlock:** Daily focus targets (e.g., 150 minutes) unlock characters for real-world discount codes (e.g., Superbalist, Checkers).
-* **Squad Wealth:** Tracking weekly collaborative sessions to unlock high-tier scratch cards.
-* **Path to Lehumo Gold:** A global progress tracker pushing users toward the ultimate 50,000-point milestone.
+## Expanding the ESLint configuration
 
-### 3. The Lehumo Vault & Shop
-* **Dynamic Economy:** Time spent studying equates directly to "Lehumo Points."
-* **Marketplace:** Points can be exchanged for lifestyle, grocery, and entertainment vouchers.
-* **Vault Wallet:** A horizontal, scrollable UI to manage unlocked and pending rewards.
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-### 4. The Entity Command Center (User Hub)
-* **Dual-Identity System:** Users can toggle their profile between "Student" (focusing on academic goals) and "Standing Entity" (focusing on professional legacy and tech stacks).
-* **Gradebook Sync:** Architecture in place to sync directly with university LMS (Blackboard) to trigger high-stake academic bets and rewards.
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-## 🛠️ Tech Stack
-* **Frontend Framework:** React (Functional Components, Hooks)
-* **Styling & UI:** Tailwind CSS (State-driven animations, Glassmorphism, Custom scrollbars)
-* **Language:** TypeScript / JavaScript (ES6+)
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-## 💻 Running the Project Locally
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-To test the Thuto-Focus MVP on your local machine:
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/YOUR-USERNAME/thuto-focus.git](https://github.com/YOUR-USERNAME/thuto-focus.git)
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
