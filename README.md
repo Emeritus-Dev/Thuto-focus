@@ -1,73 +1,29 @@
-# React + TypeScript + Vite
+🎓 Thuto-Focus: The Digger's Hub
+"Kodumela moepathutse ga go lehumo le le tswang kgauswi." > (Working in silence... your wealth makes the noise.)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Thuto-Focus is a gamified productivity application built to help university students bridge the gap between academic effort and financial reward. Instead of just another study timer, this is an ecosystem that treats academic discipline as a high-yield investment.
 
-Currently, two official plugins are available:
+The Concept
+Traditional productivity tools focus on the "grind," often leading to burnout. Thuto-Focus shifts the focus to Momentum and ROI (Return on Investment). By using the app, a user evolves from a "Student" into a "Standing Entity"—a professional-ready individual who has mastered consistency and collaborative depth.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Key Features
+1. The Study Pit
+A dynamic focus engine designed to eliminate noise. Once the timer starts, the UI scales down to minimize distractions. To keep the momentum high, the system pushes a high-performance motivation pulse every 8 minutes, keeping the user in the zone.
 
-## React Compiler
+2. ROI & Milestones (Ranks)
+Your focus is measurable. Reaching daily targets (like 150 minutes of deep work) unlocks characters for real-world discount codes (Superbalist, Checkers, etc.). We’ve also integrated a global leaderboard to track the path toward the ultimate 50,000-point Lehumo Gold milestone.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+3. The Lehumo Vault & Shop
+Focus time is currency. Every minute spent in the "Pit" generates Lehumo Points. These can be exchanged in the marketplace for lifestyle, grocery, and campus-related vouchers. The Vault acts as a personal wallet where all unlocked and pending rewards are managed.
 
-## Expanding the ESLint configuration
+4. Dual-Identity Profile
+A unique system where users toggle between their Student Profile (focused on grades and CPUT modules) and their Standing Entity Profile (focused on tech stacks, LinkedIn integration, and professional networking).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Tech Stack
+Core: React (Functional Components & Hooks)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Type Safety: TypeScript
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+UI/UX: Tailwind CSS (Custom scrollbars, Glassmorphism, and state-driven animations)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Architecture: Component-based design for scalability
